@@ -1,13 +1,13 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class TextBoxTests {
 
@@ -27,15 +27,15 @@ public class TextBoxTests {
         String Mobil = "89817572792";
         String Subjects = "History";
         String Hobbies = "Music";
-        String imgPath = "image.JPG";
+        String imgPath = "IMG_1967-28-09-17-14-05.JPG";
         String address = "academician yangel street";
 
-        Selenide.open("/automation-practice-form");
+        open("/automation-practice-form");
 
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(email);
-        $(byText("Female")).click();
+        $("#genterWrapper").$(byText("Female")).click();
         $("#userNumber").setValue(Mobil);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("April");
@@ -61,8 +61,6 @@ public class TextBoxTests {
                 text(imgPath),
                 text(address));
 
-        
-        $("#closeLargeModal").click();
 
     }
     }
