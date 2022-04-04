@@ -29,6 +29,7 @@ public class TextBoxTests {
         String Hobbies = "Music";
         String address = "academician yangel street";
 
+
         open("/automation-practice-form");
 
         $("#firstName").setValue(firstName);
@@ -42,7 +43,7 @@ public class TextBoxTests {
         $(byText("6")).click();
         $("#subjectsInput").setValue(Subjects).pressEnter();
         $("#hobbiesWrapper").$(byText(Hobbies)).click();
-        $("[id=uploadPicture]").uploadFromClasspath("IMG.JPG");
+        $("[id=uploadPicture]").uploadFromClasspath("Lesson_2.JPG");
         $("#currentAddress").setValue(address);
         $("#state").click();
         $(byText("NCR")).click();
