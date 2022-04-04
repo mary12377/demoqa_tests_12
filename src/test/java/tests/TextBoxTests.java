@@ -27,7 +27,6 @@ public class TextBoxTests {
         String Mobil = "89817572792";
         String Subjects = "History";
         String Hobbies = "Music";
-        String imgPath = "IMG_1967-28-09-17-14-05.JPG";
         String address = "academician yangel street";
 
         open("/automation-practice-form");
@@ -43,7 +42,7 @@ public class TextBoxTests {
         $(byText("6")).click();
         $("#subjectsInput").setValue(Subjects).pressEnter();
         $("#hobbiesWrapper").$(byText(Hobbies)).click();
-        $("#uploadPicture").uploadFromClasspath(imgPath);
+        $("[id=uploadPicture]").uploadFromClasspath("IMG.JPG");
         $("#currentAddress").setValue(address);
         $("#state").click();
         $(byText("NCR")).click();
@@ -58,10 +57,11 @@ public class TextBoxTests {
                 text(Mobil),
                 text(Subjects),
                 text(Hobbies),
-                text(imgPath),
                 text(address));
 
 
     }
+
     }
+
 
