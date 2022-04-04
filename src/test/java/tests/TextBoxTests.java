@@ -61,6 +61,9 @@ public class TextBoxTests {
                 text(imgPath),
                 text(address));
 
+        
+        $("#closeLargeModal").click();
+
     }
     }
 
