@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.Condition.text;
@@ -8,7 +9,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
     CalendarComponent calendar = new CalendarComponent();
-
 
     public RegistrationPage openPage(){
         open("/automation-practice-form");
@@ -51,9 +51,11 @@ public class RegistrationPage {
 
     }
 
-    public RegistrationPage setBirthDate(String day, String month, String year) {
+    public RegistrationPage setDate(String day, String month, String year) {
         $("#dateOfBirthInput").click();
-        calendar.setDate(day,month,year);
+        calendar.setDate("day" ,
+                "month" ,
+                "year");
 
         return this;
 
@@ -97,7 +99,6 @@ public class RegistrationPage {
         return this;
     }
 
-
     public void submitForm() {
         $("#submit").click();
     }
@@ -107,7 +108,6 @@ public class RegistrationPage {
 
         return this;
     }
-
     public void clickCloseModal() {
         $("#closeLargeModal").click();
 
