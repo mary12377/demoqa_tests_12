@@ -26,8 +26,7 @@ public class TextBoxRegistrationTests {
     String stateCity = format("%s %s", state, city);
     String dateOfBirth = format("%s %s %s", day, month, year);
 
-
-
+    
     @BeforeAll
     static void setUp() {
         Configuration.holdBrowserOpen = true;
