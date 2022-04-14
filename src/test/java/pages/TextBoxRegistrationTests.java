@@ -23,7 +23,6 @@ public class TextBoxRegistrationTests {
     String file = "Lesson_2.JPG";
     String state = "NCR";
     String city = "Delhi";
-    String dateOfBirth = format("%s %s,%s", day, month, year);
     String stateCity = format("%s %s", state, city);
 
 
@@ -44,7 +43,7 @@ public class TextBoxRegistrationTests {
                 .setEmail(email)
                 .setGender(gender)
                 .setMobil(Mobil);
-        registrationPage .setBirthDate(day,month,year);
+        registrationPage .setDate(day,month,year);
         registrationPage .openPage()
                 .setSubject(Subjects)
                 .setHobby(Hobbies)
@@ -56,15 +55,15 @@ public class TextBoxRegistrationTests {
 
 
          registrationPage.checkResult(  firstName, lastName)
-                .checkResult( "Student Email", email)
-                .checkResult(  "Gender", gender)
-                .checkResult( "Mobile", Mobil)
-                .checkResult( "Date of Birth",dateOfBirth)
-                .checkResult(  "Hobbies", Hobbies)
-                .checkResult( "Picture", file)
-                .checkResult(  "Address", address)
-                .checkResult("State and City",stateCity)
-                .checkResult(  "Subjects", Subjects)
+                .checkResult( email )
+                .checkResult( gender)
+                .checkResult( Mobil)
+                .checkResult(day,month,year)
+                .checkResult(  Hobbies)
+                .checkResult(file)
+                .checkResult( address)
+                .checkResult(stateCity)
+                .checkResult( Subjects)
                 .clickCloseModal();
 
 
