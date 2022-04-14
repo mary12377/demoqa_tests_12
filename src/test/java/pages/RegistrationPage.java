@@ -98,8 +98,10 @@ public class RegistrationPage {
         return this;
     }
 
-    public void submitForm() {
+    public RegistrationPage submitForm() {
         $("#submit").click();
+
+        return this;
     }
     public RegistrationPage checkResult(String key, String value) {
         $(".table-responsive").$(byText(key))
@@ -107,9 +109,10 @@ public class RegistrationPage {
 
         return this;
     }
-    public void clickCloseModal() {
+    public RegistrationPage clickCloseModal() {
         $("#closeLargeModal").click();
 
+        return this;
     }
 }
 
