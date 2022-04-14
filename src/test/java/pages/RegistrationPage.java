@@ -1,6 +1,5 @@
 package pages;
 
-import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.Condition.text;
@@ -46,16 +45,16 @@ public class RegistrationPage {
         return this;
     }
 
-    public void setMobil(String mobil) {
+    public RegistrationPage setMobil(String mobil) {
         $("#userNumber").setValue(mobil);
+
+        return this;
 
     }
 
-    public RegistrationPage setDate(String day, String month, String year) {
+    public RegistrationPage setBirthDate(String day, String month, String value) {
         $("#dateOfBirthInput").click();
-        calendar.setDate("day" ,
-                "month" ,
-                "year");
+        calendar.setBirthDate("day" , "month" , "year");
 
         return this;
 
@@ -102,7 +101,7 @@ public class RegistrationPage {
     public void submitForm() {
         $("#submit").click();
     }
-    public RegistrationPage checkResult( String key, String value) {
+    public RegistrationPage checkResult(String key, String value) {
         $(".table-responsive").$(byText(key))
                 .parent().shouldHave(text(value));
 

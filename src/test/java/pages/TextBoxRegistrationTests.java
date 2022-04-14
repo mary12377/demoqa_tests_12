@@ -24,9 +24,9 @@ public class TextBoxRegistrationTests {
     String state = "NCR";
     String city = "Delhi";
     String stateCity = format("%s %s", state, city);
+    String dateOfBirth = format("%s %s %s", day, month, year);
 
-
-
+    
     @BeforeAll
     static void setUp() {
         Configuration.holdBrowserOpen = true;
@@ -42,28 +42,25 @@ public class TextBoxRegistrationTests {
                 .setLastName(lastName)
                 .setEmail(email)
                 .setGender(gender)
-                .setMobil(Mobil);
-        registrationPage .setDate(day,month,year);
-        registrationPage .openPage()
+                .setMobil(Mobil)
+                .setBirthDate(day, month, year)
                 .setSubject(Subjects)
                 .setHobby(Hobbies)
                 .uploadPicture(file)
                 .setAddress(address)
                 .setState(state)
-                .setCity(city);
-        registrationPage .submitForm();
-
-
-         registrationPage.checkResult(  firstName, lastName)
-                .checkResult( email )
-                .checkResult( gender)
-                .checkResult( Mobil)
-                .checkResult(day,month,year)
-                .checkResult(  Hobbies)
-                .checkResult(file)
-                .checkResult( address)
-                .checkResult(stateCity)
-                .checkResult( Subjects)
+                .setCity(city)
+                .submitForm();
+                registrationPage .checkResult(firstName, lastName)
+                .checkResult( "Student Email",email )
+                .checkResult("Gender", gender)
+                .checkResult( "Mobile", Mobil)
+                .checkResult("Date of Birth",dateOfBirth)
+                .checkResult( "Hobbies", Hobbies)
+                .checkResult("Picture",file)
+                .checkResult( "Address",address)
+                .checkResult("State and City",stateCity)
+                .checkResult("Subjects", Subjects)
                 .clickCloseModal();
 
 
